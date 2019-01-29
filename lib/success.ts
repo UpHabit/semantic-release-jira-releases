@@ -15,7 +15,7 @@ function getTickets(config: PluginConfig, context: GenerateNotesContext): string
       const matches = pattern.exec(commit.message);
       if (matches) {
         tickets.add(matches[0]);
-        context.logger.info(`Found ticket ${matches[0]}`);
+        context.logger.info(`Found ticket ${matches[0]} in commit: ${commit.commit.short}`);
       }
     }
   }
@@ -25,16 +25,18 @@ function getTickets(config: PluginConfig, context: GenerateNotesContext): string
 
 async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string): Promise<Version> {
   const remoteVersions = await jira.project.getVersions({ projectIdOrKey });
+  context.logger.info(`Looking for version with name '${name}'`);
   const existing = _.find(remoteVersions, { name });
   if (existing) {
-    context.logger.info(`Found existing release ${existing.id}`);
+    context.logger.info(`Found existing release '${existing.id}'`);
     return existing;
   }
 
-  context.logger.info(`Making new release`);
+  context.logger.info(`No existing release found, creating new`);
 
   let newVersion: Version;
   if (config.dryRun) {
+    context.logger.info(`dry-run: making a fake release`);
     newVersion = {
       name,
       id: 'dry_run_id',
@@ -48,19 +50,19 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
     });
   }
 
-  context.logger.info(`Made new release ${newVersion.id}`);
+  context.logger.info(`Made new release '${newVersion.id}'`);
   return newVersion;
 }
 
 export async function success(config: PluginConfig, context: GenerateNotesContext): Promise<void> {
   const tickets = getTickets(config, context);
 
-  context.logger.info(`Found issues ${tickets.join(', ')}`);
+  context.logger.info(`Found ticket ${tickets.join(', ')}`);
 
   const template = _.template(config.releaseNameTemplate || 'v${version}');
   const newVersionName = template({ version: context.nextRelease.version });
 
-  context.logger.info(`Using jira release ${newVersionName}`);
+  context.logger.info(`Using jira release '${newVersionName}'`);
 
   const jira = makeClient(config, context);
 
