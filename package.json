@@ -4,5 +4,15 @@
   "main": "dist/lib/index.js",
   "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@semantic-release/error": "^2.2.0",
+    "@types/node": "^10.12.19",
+    "semantic-release": "^15.13.3"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.4"
+  }
 }
