@@ -6,7 +6,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p ."
+    "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
+    "install": "if [[ -f lib/index.ts ]] ; then echo 'This is a git install, compiling:'; tsc -p . ; fi",
+    "test": "tslint -p . && true \n#\n# No tests \uD83D\uDE31\n#"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
@@ -18,6 +20,7 @@
     "semantic-release": "^15.13.3"
   },
   "devDependencies": {
+    "madge": "^3.4.3",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.2.4"

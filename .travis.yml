@@ -1,0 +1,47 @@
+language: node_js
+sudo: required
+dist: xenial
+
+node_js:
+  - 10
+
+branches:
+  only:
+    - master
+    - /^ci\/.+/
+
+before_script:
+  - yarn install --pure-lockfile
+
+cache:
+  yarn: true
+  directories:
+    - $HOME/.local
+
+script:
+# - shellcheck -x $(git ls-files | grep '[.]sh$')
+  - ./node_modules/.bin/madge -c .
+  - yarn audit
+  - yarn test
+
+before_deploy:
+  - >
+    yarn global add
+    semantic-release
+    @semantic-release/changelog
+    @semantic-release/exec
+    @semantic-release/git
+    @semantic-release/github
+    @semantic-release/npm
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    'on':
+      branch: 'ci/semantic-release'
+    script: npx semantic-release --dry-run
+  - provider: script
+    skip_cleanup: true
+    'on':
+      branch: master
+    script: npx semantic-release
