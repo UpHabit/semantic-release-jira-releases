@@ -39,7 +39,7 @@ deploy:
     skip_cleanup: true
     'on':
       branch: 'ci/semantic-release'
-    script: npx semantic-release --dry-run
+    script: npx semantic-release --dry-run --branch ci/semantic-release
   - provider: script
     skip_cleanup: true
     'on':
