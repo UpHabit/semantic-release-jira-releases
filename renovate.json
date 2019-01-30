@@ -5,6 +5,7 @@
   "docker": {
     "enabled": false
   },
+  "rangeStrategy": "replace",
   "timezone": "America/Toronto",
   "rebaseStalePrs": true,
   "reviewers": ["GabrielCastro"],
