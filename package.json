@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-jira-releases",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "dist/lib/index.js",
   "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
     "install": "if [[ -f lib/index.ts ]] ; then echo 'This is a git install, compiling:'; tsc -p . ; fi",
-    "test": "tslint -p . && true \n#\n# No tests \uD83D\uDE31\n#"
+    "test": "tslint -p . && true \n#\n# No tests 😱\n#"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
