@@ -7,18 +7,18 @@
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
-    "install": "if [[ -f lib/index.ts ]] ; then echo 'This is a git install, compiling:'; tsc -p . ; fi",
-    "test": "tslint -p . && true \n#\n# No tests 😱\n#"
+    "test": "tslint -p . && true \n#\n# No tests \uD83D\uDE31\n#"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
+    "jira-connector": "^2.10.0",
+    "lodash": "^4.17.11",
+    "tslib": "^1.9.2"
+  },
+  "devDependencies": {
     "@types/lodash": "^4.14.120",
     "@types/node": "^10.12.19",
     "@types/signale": "^1.2.0",
-    "jira-connector": "^2.10.0",
-    "lodash": "^4.17.11"
-  },
-  "devDependencies": {
     "madge": "^3.4.3",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
