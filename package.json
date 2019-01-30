@@ -4,7 +4,10 @@
   "main": "dist/lib/index.js",
   "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p ."
+  },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
     "@types/lodash": "^4.14.120",
