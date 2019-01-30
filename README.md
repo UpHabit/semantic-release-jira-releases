@@ -5,7 +5,7 @@
 [![Travis](https://img.shields.io/travis/UpHabit/semantic-release-jira-releases.svg)](https://travis-ci.org/UpHabit/semantic-release-jira-releases)
 
 [![npm latest version](https://img.shields.io/npm/v/semantic-release-jira-releases/latest.svg)](https://www.npmjs.com/package/semantic-release-jira-releases)
-[![npm next version](https://img.shields.io/npm/v/semantic-release-jira-releasesnext.svg)](https://www.npmjs.com/package/semantic-release-jira-releases)
+
 
 | Step               | Description                                                                                                                                   |
 |--------------------|----------------------------------------------------------------------------|
