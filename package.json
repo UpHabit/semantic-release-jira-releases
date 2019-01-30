@@ -16,8 +16,7 @@
     "@types/node": "^10.12.19",
     "@types/signale": "^1.2.0",
     "jira-connector": "^2.10.0",
-    "lodash": "^4.17.11",
-    "semantic-release": "^15.13.3"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "madge": "^3.4.3",
