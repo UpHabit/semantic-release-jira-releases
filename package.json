@@ -1,13 +1,13 @@
 {
   "name": "semantic-release-jira-releases",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/lib/index.js",
   "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
-    "test": "tslint -p . && true \n#\n# No tests \uD83D\uDE31\n#"
+    "test": "tslint -p . && true \n#\n# No tests 😱\n#"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",

@@ -1,3 +1,11 @@
+## [0.1.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.1.0...v0.1.1) (2019-01-30)
+
+
+### Bug Fixes
+
+* **ci:** Automate npm publish ([5abd275](https://github.com/UpHabit/semantic-release-jira-releases/commit/5abd275))
+* **deps:** add missing tslib dep ([8b59b2c](https://github.com/UpHabit/semantic-release-jira-releases/commit/8b59b2c))
+
 # [0.1.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.0.0...v0.1.0) (2019-01-30)
 
 
