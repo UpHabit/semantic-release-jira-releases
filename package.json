@@ -19,9 +19,9 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "madge": "^3.4.3",
-    "tslint": "^5.12.1",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.2.4"
+    "madge": "3.4.3",
+    "tslint": "5.12.1",
+    "tslint-config-airbnb": "5.11.1",
+    "typescript": "3.2.4"
   }
 }

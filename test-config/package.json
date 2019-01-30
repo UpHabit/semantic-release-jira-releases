@@ -5,10 +5,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@semantic-release/commit-analyzer": "^6.1.0",
-    "@semantic-release/npm": "^5.1.4",
-    "@semantic-release/release-notes-generator": "^7.1.4",
-    "semantic-release": "^15.13.3",
+    "@semantic-release/commit-analyzer": "6.1.0",
+    "@semantic-release/npm": "5.1.4",
+    "@semantic-release/release-notes-generator": "7.1.4",
+    "semantic-release": "15.13.3",
     "semantic-release-jira-releases": "./.."
   }
 }
