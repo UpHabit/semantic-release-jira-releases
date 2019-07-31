@@ -10,13 +10,28 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
   if (typeof config.projectId !== 'string') {
     throw new SemanticReleaseError(`config.projectId must be a string`);
   }
-  if (!Array.isArray(config.ticketPrefixes)) {
-    throw new SemanticReleaseError(`config.ticketPrefixes must be an array of string`);
+
+  if (!config.ticketPrefixes && !config.ticketRegex) {
+    throw new SemanticReleaseError('Either config.ticketPrefixes or config.ticketRegex must be passed');
   }
-  for (const prefix of config.ticketPrefixes) {
-    if (typeof prefix !== 'string') {
+
+  if (config.ticketPrefixes && config.ticketRegex) {
+    throw new SemanticReleaseError(`config.ticketPrefixes and config.ticketRegex cannot be passed at the same time`);
+  }
+
+  if (config.ticketPrefixes) {
+    if (!Array.isArray(config.ticketPrefixes)) {
       throw new SemanticReleaseError(`config.ticketPrefixes must be an array of string`);
     }
+    for (const prefix of config.ticketPrefixes) {
+      if (typeof prefix !== 'string') {
+        throw new SemanticReleaseError(`config.ticketPrefixes must be an array of string`);
+      }
+    }
+  }
+
+  if (config.ticketRegex && typeof config.ticketRegex !== 'string') {
+    throw new SemanticReleaseError(`config.ticketRegex must be an string`);
   }
 
   if (config.releaseNameTemplate) {
