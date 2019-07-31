@@ -32,7 +32,7 @@ The plugin should be added to your config
       "releaseNameTemplate": "Test v${version}",
       "jiraHost": "uphabit.atlassian.net",
       "ticketPrefixes": [ "TEST", "UH"],
-      "ticketRegex": "[a-zA-Z]{3,5}-\d{3,5}"
+      "ticketRegex": "[a-zA-Z]{3,5}-\\d{3,5}"
     }]
   ]
 }
@@ -49,7 +49,7 @@ interface Config {
   // ie. ['TEST'] would match `TEST-123` and `TEST-456`
   ticketPrefixes?: string[];
 
-  // A regex to match tickets in commits (without slashes). Cannot be used together with ticketPrefixes.
+  // A unescaped regex to match tickets in commits (without slashes). Cannot be used together with ticketPrefixes.
   // ie. [a-zA-Z]{4}-\d{3,5} would match any ticket with 3 letters a dash and 3 to 5 numbers, such as `TEST-456`, `TEST-5643` and `TEST-56432`
   ticketRegex?: string;
   
