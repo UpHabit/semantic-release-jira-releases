@@ -9,7 +9,7 @@ function getTickets(config: PluginConfig, context: GenerateNotesContext): string
   let patterns: RegExp[] = [];
 
   if(config.ticketRegex) {
-    patterns = [new RegExp(config.ticketRegex, 'giu')];
+    patterns = [new RegExp(escapeRegExp(config.ticketRegex), 'giu')];
   } else {
     patterns = config.ticketPrefixes!
     .map(prefix => new RegExp(`\\b${escapeRegExp(prefix)}-(\\d+)\\b`, 'giu'));
