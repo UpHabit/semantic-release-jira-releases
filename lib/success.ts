@@ -8,7 +8,7 @@ import { escapeRegExp } from './util';
 function getTickets(config: PluginConfig, context: GenerateNotesContext): string[] {
   let patterns: RegExp[] = [];
 
-  if(config.ticketRegex) {
+  if (config.ticketRegex) {
     patterns = [new RegExp(escapeRegExp(config.ticketRegex), 'giu')];
   } else {
     patterns = config.ticketPrefixes!
