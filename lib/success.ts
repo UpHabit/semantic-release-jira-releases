@@ -9,7 +9,7 @@ function getTickets(config: PluginConfig, context: GenerateNotesContext): string
   const patterns = config.ticketPrefixes!
     .map(prefix => new RegExp(`\\b${escapeRegExp(prefix)}-(\\d+)\\b`, 'giu'));
 
-  const tickets = new Set();
+  const tickets = new Set<string>();
   for (const commit of context.commits) {
     for (const pattern of patterns) {
       const matches = pattern.exec(commit.message);

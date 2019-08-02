@@ -674,10 +674,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jira-connector@^2.10.0:
-  version "2.15.7"
-  resolved "https://registry.yarnpkg.com/jira-connector/-/jira-connector-2.15.7.tgz#fb1aee9f6a16df0f2b8a3c33057b42fdf977efe9"
-  integrity sha512-tv49hwAdgT4wOOb2j4vAHOQab7kIq0alWN9g0lq6tJgX4WEe/6FlX41x6A5G3TFE7n9JpUXXaJ17volagc2Jcw==
+jira-connector@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/jira-connector/-/jira-connector-2.16.0.tgz#1d811c01157574da6431bec4b0b93142ca7c296b"
+  integrity sha512-h4HYVYZ8Nbq8uiiCMuuY9Lm3sCi4SS1654GSvLS6nqF2/gFCWlmGx+5fEFAVODKXekjwuOUT3kDZpMzO1Uz6mw==
   dependencies:
     mime-types "^2.1.24"
     oauth "^0.9.12"
