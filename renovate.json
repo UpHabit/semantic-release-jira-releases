@@ -9,10 +9,10 @@
   },
   "packageRules": [
     {
-      "path": "./package.json"
+      "paths": ["./package.json"]
     },
     {
-      "path": "./test-config/package.json"
+      "paths": ["./test-config/package.json"]
     }
   ],
   "rangeStrategy": "replace",
