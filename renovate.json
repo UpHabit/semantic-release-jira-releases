@@ -1,16 +1,23 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":preserveSemverRanges",
+    ":semanticCommitTypeAll(chore)"
   ],
   "docker": {
     "enabled": false
   },
+  "packageRules": [
+    {
+      "path": "./package.json"
+    },
+    {
+      "path": "./test-config/package.json"
+    }
+  ],
   "rangeStrategy": "replace",
   "timezone": "America/Toronto",
   "rebaseStalePrs": true,
   "reviewers": ["GabrielCastro"],
-  "schedule": [
-    "after 9am and before 3pm",
-    "every weekday"
-  ]
+  "schedule": ["after 9am and before 3pm", "every weekday"]
 }
