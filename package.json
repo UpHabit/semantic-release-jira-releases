@@ -8,11 +8,12 @@
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
     "lint": "tslint -p .",
+    "build": "tsc -p .",
     "test": " yarn jest"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
-    "jira-connector": "^2.10.0",
+    "jira-connector": "^2.16.0",
     "lodash": "^4.17.11",
     "tslib": "^1.9.2"
   },
