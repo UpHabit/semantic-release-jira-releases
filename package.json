@@ -7,11 +7,11 @@
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
-    "test": "tslint -p . && true \n#\n# No tests 😱\n#"
+    "test": "tsc -p . && tslint -p . && true \n#\n# No tests 😱\n#"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
-    "jira-connector": "^2.10.0",
+    "jira-connector": "^2.16.0",
     "lodash": "^4.17.11",
     "tslib": "^1.9.2"
   },
