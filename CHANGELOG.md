@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.2.0...v0.2.1) (2019-08-02)
+
+
+### Bug Fixes
+
+* **ci:** make sure we can compile as a test ([542429b](https://github.com/UpHabit/semantic-release-jira-releases/commit/542429b))
+
 # [0.2.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.1.1...v0.2.0) (2019-07-22)
 
 
