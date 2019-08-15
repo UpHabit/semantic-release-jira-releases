@@ -1,3 +1,18 @@
+# [0.3.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.2.1...v0.3.0) (2019-08-15)
+
+
+### Bug Fixes
+
+* escaping regex ([e1bea79](https://github.com/UpHabit/semantic-release-jira-releases/commit/e1bea79))
+* fixing ticketRegex matching ([7a3957d](https://github.com/UpHabit/semantic-release-jira-releases/commit/7a3957d))
+* **ci:** make sure we can compile as a test ([05b883d](https://github.com/UpHabit/semantic-release-jira-releases/commit/05b883d))
+
+
+### Features
+
+* adding support for regex in tickets ([8cef9b0](https://github.com/UpHabit/semantic-release-jira-releases/commit/8cef9b0))
+* adding the ability to pass a regex to filter tickets ([#10](https://github.com/UpHabit/semantic-release-jira-releases/issues/10)) ([71b535f](https://github.com/UpHabit/semantic-release-jira-releases/commit/71b535f))
+
 ## [0.2.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.2.0...v0.2.1) (2019-08-02)
 
 
