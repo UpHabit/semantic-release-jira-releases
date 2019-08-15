@@ -5,11 +5,11 @@ import { makeClient } from './jira';
 import { GenerateNotesContext, PluginConfig } from './types';
 import { escapeRegExp } from './util';
 
-function getTickets(config: PluginConfig, context: GenerateNotesContext): string[] {
+export function getTickets(config: PluginConfig, context: GenerateNotesContext): string[] {
   let patterns: RegExp[] = [];
 
-  if (config.ticketRegex) {
-    patterns = [new RegExp(escapeRegExp(config.ticketRegex), 'giu')];
+  if (config.ticketRegex !== undefined) {
+    patterns = [new RegExp(config.ticketRegex, 'giu')];
   } else {
     patterns = config.ticketPrefixes!
     .map(prefix => new RegExp(`\\b${escapeRegExp(prefix)}-(\\d+)\\b`, 'giu'));
@@ -18,7 +18,7 @@ function getTickets(config: PluginConfig, context: GenerateNotesContext): string
   const tickets = new Set<string>();
   for (const commit of context.commits) {
     for (const pattern of patterns) {
-      const matches = pattern.exec(commit.message);
+      const matches = commit.message.match(pattern);
       if (matches) {
         tickets.add(matches[0]);
         context.logger.info(`Found ticket ${matches[0]} in commit: ${commit.commit.short}`);
