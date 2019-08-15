@@ -22,6 +22,7 @@ script:
 # - shellcheck -x $(git ls-files | grep '[.]sh$')
   - ./node_modules/.bin/madge -c .
   - yarn audit
+  - yarn lint
   - yarn test
 
 before_deploy:
