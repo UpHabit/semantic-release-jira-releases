@@ -7,7 +7,9 @@
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
-    "test": "tsc -p . && tslint -p . && true \n#\n# No tests 😱\n#"
+    "lint": "tslint -p .",
+    "build": "tsc -p .",
+    "test": " yarn jest"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
@@ -16,9 +18,13 @@
     "tslib": "^1.9.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.17",
     "@types/lodash": "^4.14.120",
     "@types/node": "^10.12.19",
     "@types/signale": "^1.2.0",
+    "jest": "^24.8.0",
     "madge": "^3.4.3",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",

@@ -31,10 +31,13 @@ The plugin should be added to your config
       "projectId": "UH",
       "releaseNameTemplate": "Test v${version}",
       "jiraHost": "uphabit.atlassian.net",
-      "ticketPrefixes": [ "TEST", "UH"]
+      "ticketPrefixes": [ "TEST", "UH"],
+      "ticketRegex": "[a-zA-Z]{3,5}-\\d{3,5}"
     }]
   ]
 }
+
+Please note that `ticketRegex` cannot be used together with `ticketPrefixes`.
 ```
 ```typescript
 interface Config {
@@ -42,9 +45,13 @@ interface Config {
   /// A domain of a jira instance ie: `uphabit.atlasian.net`
   jiraHost: string;
 
-  // A list of prefixes to match when looking for tickets in commits
+  // A list of prefixes to match when looking for tickets in commits. Cannot be used together with ticketRegex.
   // ie. ['TEST'] would match `TEST-123` and `TEST-456`
-  ticketPrefixes: string[];
+  ticketPrefixes?: string[];
+
+  // A unescaped regex to match tickets in commits (without slashes). Cannot be used together with ticketPrefixes.
+  // ie. [a-zA-Z]{4}-\d{3,5} would match any ticket with 3 letters a dash and 3 to 5 numbers, such as `TEST-456`, `TEST-5643` and `TEST-56432`
+  ticketRegex?: string;
   
   // The id or key for the project releases will be created in
   projectId: string;
