@@ -43,6 +43,15 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
   if (!context.env.JIRA_AUTH) {
     throw new SemanticReleaseError(`JIRA_AUTH must be a string`);
   }
+
+  if (config.jiraPort && typeof config.jiraPort !== 'number') {
+    throw new SemanticReleaseError('config.jiraPort must be a number.');
+  }
+
+  if (config.jiraProtocol && typeof config.jiraProtocol !== 'string') {
+    throw new SemanticReleaseError('config.jiraProtocol must be a string.');
+  }
+
   const jira = makeClient(config, context);
   await jira.project.getProject({ projectIdOrKey: config.projectId });
 }
