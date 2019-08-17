@@ -1,3 +1,4 @@
+// @ts-ignore
 import JiraClient, { Version } from 'jira-connector';
 import * as _ from 'lodash';
 
