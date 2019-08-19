@@ -11,6 +11,7 @@
     ]
   },
   "rules": {
+    "ban-ts-ignore": true,
     "ter-arrow-parens": [true, "as-needed"],
     "ter-indent": [true, 2, {
       "SwitchCase": 1
