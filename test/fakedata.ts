@@ -23,7 +23,7 @@ export const commits: Commit[] = [
   'feat: [UH-1258] better logging ',
   'feat: [UH-1258] Implement release creation',
   'fix: [FIX-123] typescript config',
-  'fix: [TEST-123] test commit',
+  'fix: [TEST-123] [TEST-234] test commit',
 ].map(m => ({
   author,
   committer: author,

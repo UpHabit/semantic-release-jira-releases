@@ -12,7 +12,7 @@ export function getTickets(config: PluginConfig, context: GenerateNotesContext):
     patterns = [new RegExp(config.ticketRegex, 'giu')];
   } else {
     patterns = config.ticketPrefixes!
-    .map(prefix => new RegExp(`\\b${escapeRegExp(prefix)}-(\\d+)\\b`, 'giu'));
+        .map(prefix => new RegExp(`\\b${escapeRegExp(prefix)}-(\\d+)\\b`, 'giu'));
   }
 
   const tickets = new Set<string>();
@@ -20,8 +20,10 @@ export function getTickets(config: PluginConfig, context: GenerateNotesContext):
     for (const pattern of patterns) {
       const matches = commit.message.match(pattern);
       if (matches) {
-        tickets.add(matches[0]);
-        context.logger.info(`Found ticket ${matches[0]} in commit: ${commit.commit.short}`);
+        matches.forEach(match => {
+          tickets.add(match);
+          context.logger.info(`Found ticket ${matches} in commit: ${commit.commit.short}`);
+        });
       }
     }
   }
