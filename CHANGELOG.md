@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.3.0...v0.4.0) (2019-08-30)
+
+
+### Features
+
+* allow multiple tickets in the same commit message ([aff41a2](https://github.com/UpHabit/semantic-release-jira-releases/commit/aff41a2))
+
 # [0.3.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.2.1...v0.3.0) (2019-08-15)
 
 
