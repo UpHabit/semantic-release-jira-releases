@@ -1,5 +1,6 @@
 import JiraClient, { Version } from 'jira-connector';
 import * as _ from 'lodash';
+import pLimit from 'p-limit';
 
 import { makeClient } from './jira';
 import { GenerateNotesContext, PluginConfig } from './types';
@@ -62,6 +63,39 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
   return newVersion;
 }
 
+async function editIssueFixVersions(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, newVersionName: string, releaseVersionId: string, issueKey: string): Promise<void> {
+  try {
+    context.logger.info(`Adding issue ${issueKey} to '${newVersionName}'`);
+    if (!config.dryRun) {
+      await jira.issue.editIssue({
+        issueKey,
+        issue: {
+          update: {
+            fixVersions: [{
+              add: { id: releaseVersionId },
+            }],
+          },
+        },
+      });
+    }
+  } catch (err) {
+    const allowedStatusCodes = [400, 404];
+    let { statusCode } = err;
+    if (typeof err === 'string') {
+      try {
+        err = JSON.parse(err);
+        statusCode = statusCode || err.statusCode;
+      } catch (err) {
+          // it's not json :shrug:
+      }
+    }
+    if (allowedStatusCodes.indexOf(statusCode) === -1) {
+      throw err;
+    }
+    context.logger.error(`Unable to update issue ${issueKey} statusCode: ${statusCode}`);
+  }
+}
+
 export async function success(config: PluginConfig, context: GenerateNotesContext): Promise<void> {
   const tickets = getTickets(config, context);
 
@@ -77,37 +111,13 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
   const project = await jira.project.getProject({ projectIdOrKey: config.projectId });
   const releaseVersion = await findOrCreateVersion(config, context, jira, project.id, newVersionName);
 
-  for (const issueKey of tickets) {
-    try {
-      context.logger.info(`Adding issue ${issueKey} to '${newVersionName}'`);
-      if (!config.dryRun) {
-        await jira.issue.editIssue({
-          issueKey,
-          issue: {
-            update: {
-              fixVersions: [{
-                add: { id: releaseVersion.id },
-              }],
-            },
-          },
-        });
-      }
-    } catch (err) {
-      const allowedStatusCodes = [400, 404];
-      let { statusCode } = err;
-      if (typeof err === 'string') {
-        try {
-          err = JSON.parse(err);
-          statusCode = statusCode || err.statusCode;
-        } catch (err) {
-          // it's not json :shrug:
-        }
-      }
-      if (allowedStatusCodes.indexOf(statusCode) === -1) {
-        throw err;
-      }
-      context.logger.error(`Unable to update issue ${issueKey} statusCode: ${statusCode}`);
-    }
-  }
+  const concurrentLimit = pLimit(config.networkConcurrency || 10);
 
+  const edits = tickets.map(issueKey =>
+    concurrentLimit(() =>
+      editIssueFixVersions(config, context, jira, newVersionName, releaseVersion.id, issueKey),
+    ),
+  );
+
+  await Promise.all(edits);
 }

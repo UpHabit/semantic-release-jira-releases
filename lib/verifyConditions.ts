@@ -4,6 +4,8 @@ import { makeClient } from './jira';
 import { PluginConfig, PluginContext } from './types';
 
 export async function verifyConditions(config: PluginConfig, context: PluginContext): Promise<void> {
+  const { networkConcurrency } = config;
+
   if (typeof config.jiraHost !== 'string') {
     throw new SemanticReleaseError(`config.jiraHost must be a string`);
   }
@@ -38,6 +40,10 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
     if (typeof config.releaseNameTemplate !== 'string' || config.releaseNameTemplate!.indexOf('${version}') === -1) {
       throw new SemanticReleaseError('config.releaseNameTemplate must be a string containing ${version}');
     }
+  }
+
+  if (networkConcurrency && (typeof networkConcurrency !== 'number' || networkConcurrency < 1)) {
+    throw new SemanticReleaseError(`config.networkConcurrency must be an number greater than 0`);
   }
 
   if (!context.env.JIRA_AUTH) {
