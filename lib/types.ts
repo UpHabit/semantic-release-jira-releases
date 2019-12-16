@@ -61,4 +61,5 @@ export interface PluginConfig extends BaseConfig {
   projectId: string;
   releaseNameTemplate?: string;
   jiraHost: string;
+  networkConcurrency?: number;
 }

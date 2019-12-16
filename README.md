@@ -60,5 +60,8 @@ interface Config {
   // defaults to `v${version}` which results in a version that is named like `v1.0.0`
   // ex: `Semantic Release v${version}` results in `Semantic Release v1.0.0`
   releaseNameTemplate?: string;
+
+  // The number of maximum parallel network calls
+  networkConcurrency?: number;
 }
 ```
