@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.4.0...v0.5.0) (2020-01-21)
+
+
+### Features
+
+* bulk update issues and network concurrency limit ([2bebfd4](https://github.com/UpHabit/semantic-release-jira-releases/commit/2bebfd40880df43e2be4f15298b21cd7274d12a0))
+
 # [0.4.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.3.0...v0.4.0) (2019-08-30)
 
 

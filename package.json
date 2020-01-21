@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-jira-releases",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "main": "dist/lib/index.js",
   "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
