@@ -61,7 +61,7 @@ interface Config {
   // ex: `Semantic Release v${version}` results in `Semantic Release v1.0.0`
   releaseNameTemplate?: string;
 
-  // The number of maximum parallel network calls
+  // The number of maximum parallel network calls, default 10
   networkConcurrency?: number;
 }
 ```
