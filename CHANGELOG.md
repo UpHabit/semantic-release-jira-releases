@@ -1,3 +1,10 @@
+## [0.5.3](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.2...v0.5.3) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** upgrade jira-connector to 3.1.0 ([3d157d5](https://github.com/UpHabit/semantic-release-jira-releases/commit/3d157d587c368fc774e252f4aea9fd400083ad47))
+
 ## [0.5.2](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.1...v0.5.2) (2020-03-27)
 
 
