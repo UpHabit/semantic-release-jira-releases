@@ -52,10 +52,8 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
     } as any;
   } else {
     newVersion = await jira.version.createVersion({
-      version: {
-        name,
-        projectId: projectIdOrKey,
-      },
+      name,
+      projectId: projectIdOrKey as any,
     });
   }
 
@@ -75,6 +73,7 @@ async function editIssueFixVersions(config: PluginConfig, context: GenerateNotes
               add: { id: releaseVersionId },
             }],
           },
+          properties: undefined as any,
         },
       });
     }
