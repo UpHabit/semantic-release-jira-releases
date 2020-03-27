@@ -1,3 +1,10 @@
+## [0.5.2](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.1...v0.5.2) (2020-03-27)
+
+
+### Bug Fixes
+
+* Merge pull request [#20](https://github.com/UpHabit/semantic-release-jira-releases/issues/20) from UpHabit/renovate/major-semantic-release-monorepo ([d758907](https://github.com/UpHabit/semantic-release-jira-releases/commit/d758907d37bd0e861fd1b10ce3acbd6829006d4e))
+
 ## [0.5.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.0...v0.5.1) (2020-03-27)
 
 
