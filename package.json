@@ -27,7 +27,7 @@
     "@types/signale": "^1.2.0",
     "jest": "^25.0.0",
     "madge": "^3.4.3",
-    "tslint": "^5.12.1",
+    "tslint": "^6.0.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.2.4"
   }
