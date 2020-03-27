@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.0...v0.5.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* **security:** update all packages with secuirty issues ([1ba6780](https://github.com/UpHabit/semantic-release-jira-releases/commit/1ba67803f6c1f51770bd0b8d0f0f1e23d9025e64))
+
 # [0.5.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.4.0...v0.5.0) (2020-01-21)
 
 
