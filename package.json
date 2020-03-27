@@ -35,6 +35,6 @@
     "**/gonzales-pe/minimist": "^1.2.5",
     "typescript": "^3.8.3",
     "**/typescript": "^3.8.3",
-    "**/mkdirp/minimist": "^0.2.1"
+    "**/mkdirp/minimist": "^1.0.0"
   }
 }
