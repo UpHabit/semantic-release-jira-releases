@@ -55,6 +55,8 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
       version: {
         name,
         projectId: projectIdOrKey,
+        released: config.released ? true : false,
+        releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : ""
       },
     });
   }

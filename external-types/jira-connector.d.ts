@@ -48,6 +48,8 @@ declare module 'jira-connector' {
           name: string;
           projectId: number | string;
           description?: string;
+          released?: boolean;
+          releaseDate?:string;
         };
       }): Promise<Version>;
 
