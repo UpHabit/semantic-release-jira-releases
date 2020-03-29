@@ -38,5 +38,15 @@ describe('integration tests', () => {
       expect(res.releaseDate).toBeTruthy();
     });
 
+    itif(runIntegration())('should create a release with released and releasedate undefined', async () => {
+      jest.setTimeout(10000);
+      const jira = makeClient(pluginConfig as PluginConfig, context);
+      const name = `test-${Date.now()}`;
+      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId as string, name);
+      expect(res.name).toEqual(name);
+      expect(res.released).toBeTruthy();
+      expect(res.releaseDate).toBeTruthy();
+    });
+
   });
 });

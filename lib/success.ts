@@ -54,8 +54,8 @@ export async function findOrCreateVersion(config: PluginConfig, context: Generat
     newVersion = await jira.version.createVersion({   
         name,
         project: projectIdOrKey,
-        released: config.released ? true : false,
-        releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : undefined
+        // released: config.released ? true : false,
+        // releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : undefined
       }, 
     );
   }
