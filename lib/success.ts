@@ -32,7 +32,7 @@ export function getTickets(config: PluginConfig, context: GenerateNotesContext):
   return [...tickets];
 }
 
-async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string): Promise<Version> {
+export async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string): Promise<Version> {
   const remoteVersions = await jira.project.getVersions({ projectIdOrKey });
   context.logger.info(`Looking for version with name '${name}'`);
   const existing = _.find(remoteVersions, { name });
@@ -51,14 +51,13 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
       id: 'dry_run_id',
     } as any;
   } else {
-    newVersion = await jira.version.createVersion({
-      version: {
+    newVersion = await jira.version.createVersion({   
         name,
-        projectId: projectIdOrKey,
+        project: projectIdOrKey,
         released: config.released ? true : false,
-        releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : ""
-      },
-    });
+        releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : undefined
+      }, 
+    );
   }
 
   context.logger.info(`Made new release '${newVersion.id}'`);
@@ -77,6 +76,7 @@ async function editIssueFixVersions(config: PluginConfig, context: GenerateNotes
               add: { id: releaseVersionId },
             }],
           },
+          properties:[]
         },
       });
     }

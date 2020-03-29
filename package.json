@@ -1,34 +1,38 @@
 {
-  "name": "semantic-release-jira-releases",
-  "version": "0.5.0",
+  "name": "@pie-api/semantic-release-jira-releases",
+  "version": "0.9.0",
   "main": "dist/lib/index.js",
-  "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
+  "repository": "https://github.com/key-data-systems/semantic-release-jira-releases",
   "license": "MIT",
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "test": " yarn jest"
+    "test": "yarn jest --verbose"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
-    "jira-connector": "^2.16.0",
+    "@types/request": "^2.48.4",
+    "jira-connector": "^3.1.0",
     "lodash": "^4.17.11",
     "p-limit": "^2.2.1",
     "tslib": "^1.9.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
-    "@types/jest": "^24.0.17",
+    "@types/jest": "^25.1.4",
     "@types/lodash": "^4.14.120",
-    "@types/node": "^10.12.19",
+    "@types/node": "^13.9.5",
     "@types/signale": "^1.2.0",
-    "jest": "^24.8.0",
+    "babel-polyfill": "^6.26.0",
+    "jest": "^25.2.3",
     "madge": "^3.4.3",
-    "tslint": "^5.12.1",
+    "ts-jest": "^25.2.1",
+    "tslint": "^6.1.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.2.4"
+    "typescript": "^3.8.3"
   }
 }
