@@ -10,6 +10,8 @@ plugins:
     - projectId: UH
       releaseNameTemplate: 'Test v${version}'
       jiraHost: uphabit.atlassian.net
+      released: true
+      setReleaseDate: true
       ticketPrefixes:
         - TEST
         - FIX

@@ -62,4 +62,7 @@ export interface PluginConfig extends BaseConfig {
   releaseNameTemplate?: string;
   jiraHost: string;
   networkConcurrency?: number;
+
+  released?: boolean;
+  setReleaseDate?: boolean;
 }
