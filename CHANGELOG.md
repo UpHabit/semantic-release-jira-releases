@@ -1,3 +1,11 @@
+# [0.6.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.3...v0.6.0) (2020-03-30)
+
+
+### Features
+
+* add option for released and releaseDate for veresion ([879d592](https://github.com/UpHabit/semantic-release-jira-releases/commit/879d592eae0f2ff7b321794fe7c1d386b8ce2dff))
+* add release notes to JIRA release ([e7ce86b](https://github.com/UpHabit/semantic-release-jira-releases/commit/e7ce86b30a68dcb342afe765c5c0600cc418c7e4))
+
 ## [0.5.3](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.2...v0.5.3) (2020-03-27)
 
 
