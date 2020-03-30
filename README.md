@@ -63,5 +63,11 @@ interface Config {
 
   // The number of maximum parallel network calls, default 10
   networkConcurrency?: number;
+
+  // indicates if a new release created in jira should be set as released
+  released?: boolean;
+  // include the release date when creating a release in jira
+  setReleaseDate?: boolean;
+
 }
 ```

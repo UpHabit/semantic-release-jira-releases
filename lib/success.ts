@@ -54,6 +54,9 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
     newVersion = await jira.version.createVersion({
       name,
       projectId: projectIdOrKey as any,
+      description: context.nextRelease.notes,
+      released: Boolean(config.released),
+      releaseDate: config.setReleaseDate ? (new Date().toISOString()) : undefined,
     });
   }
 
