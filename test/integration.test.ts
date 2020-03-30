@@ -6,12 +6,12 @@ import { context, pluginConfig } from './fakedata';
 
 const itif = condition => condition ? it : it.skip;
 
-const runIntegration = () => { return process.env.JIRA_AUTH && process.env.JIRA_HOST && process.env.JIRA_PROJECT; };
+const runIntegration = () => { return process.env.JIRA_AUTH && process.env.JIRA_HOST && process.env.JIRA_PROJECT_ID; };
 
 describe('integration tests', () => {
   beforeAll(() => {
     context.env.JIRA_AUTH = process.env.JIRA_AUTH as string;
-    pluginConfig.projectId = process.env.JIRA_PROJECT;
+    pluginConfig.projectId = Number(process.env.JIRA_PROJECT_ID);
     pluginConfig.jiraHost = process.env.JIRA_HOST;
     pluginConfig.dryRun = false;
   });
@@ -21,7 +21,7 @@ describe('integration tests', () => {
       pluginConfig.released = true;
       const jira = makeClient(pluginConfig as PluginConfig, context);
       const name = `test-${Date.now()}`;
-      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId as string, name);
+      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId, name);
       expect(res.name).toEqual(name);
       expect(res.released).toBeTruthy();
     });
@@ -32,7 +32,7 @@ describe('integration tests', () => {
       pluginConfig.releaseDate = true;
       const jira = makeClient(pluginConfig as PluginConfig, context);
       const name = `test-${Date.now()}`;
-      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId as string, name);
+      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId, name);
       expect(res.name).toEqual(name);
       expect(res.released).toBeTruthy();
       expect(res.releaseDate).toBeTruthy();
@@ -42,7 +42,7 @@ describe('integration tests', () => {
       jest.setTimeout(10000);
       const jira = makeClient(pluginConfig as PluginConfig, context);
       const name = `test-${Date.now()}`;
-      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId as string, name);
+      const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId, name);
       expect(res.name).toEqual(name);
       expect(res.released).toBeTruthy();
       expect(res.releaseDate).toBeTruthy();

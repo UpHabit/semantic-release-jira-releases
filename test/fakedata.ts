@@ -52,7 +52,7 @@ export const upcomingRelease: UpcomingRelease = {
 
 export const pluginConfig: Partial<PluginConfig> = {
   ...baseConfig,
-  projectId: 'TEST',
+  projectId: 1,
   jiraHost: 'testjira.com'
 }
 

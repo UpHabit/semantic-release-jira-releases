@@ -1,6 +1,6 @@
 {
   "name": "@pie-api/semantic-release-jira-releases",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "dist/lib/index.js",
   "repository": "https://github.com/key-data-systems/semantic-release-jira-releases",
   "license": "MIT",
