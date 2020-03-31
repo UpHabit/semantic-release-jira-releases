@@ -2,14 +2,14 @@
   "name": "semantic-release-jira-releases",
   "version": "0.6.0",
   "main": "dist/lib/index.js",
-  "repository": "https://github.com/key-data-systems/semantic-release-jira-releases",
+  "repository": "https://github.com/UpHabit/semantic-release-jira-releases",
   "license": "MIT",
   "private": false,
   "scripts": {
     "prepublishOnly": "mkdir -p dist && rm -rf dist && tsc -p .",
     "lint": "tslint -p .",
     "build": "tsc -p .",
-    "test": "yarn jest --verbose"
+    "test": "yarn jest"
   },
   "dependencies": {
     "@semantic-release/error": "^2.2.0",
