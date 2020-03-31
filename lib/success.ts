@@ -32,8 +32,8 @@ export function getTickets(config: PluginConfig, context: GenerateNotesContext):
   return [...tickets];
 }
 
-async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string): Promise<Version> {
-  const remoteVersions = await jira.project.getVersions({ projectIdOrKey });
+export async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectId: number, name: string): Promise<Version> {
+  const remoteVersions = await jira.project.getVersions({ projectIdOrKey: projectId });
   context.logger.info(`Looking for version with name '${name}'`);
   const existing = _.find(remoteVersions, { name });
   if (existing) {
@@ -53,7 +53,7 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
   } else {
     newVersion = await jira.version.createVersion({
       name,
-      projectId: projectIdOrKey as any,
+      projectId: projectId as any,
       description: context.nextRelease.notes,
       released: Boolean(config.released),
       releaseDate: config.setReleaseDate ? (new Date().toISOString()) : undefined,

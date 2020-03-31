@@ -9,8 +9,8 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
   if (typeof config.jiraHost !== 'string') {
     throw new SemanticReleaseError(`config.jiraHost must be a string`);
   }
-  if (typeof config.projectId !== 'string') {
-    throw new SemanticReleaseError(`config.projectId must be a string`);
+  if (typeof config.projectId !== 'number') {
+    throw new SemanticReleaseError(`config.projectId must be a number`);
   }
 
   if (!config.ticketPrefixes && !config.ticketRegex) {

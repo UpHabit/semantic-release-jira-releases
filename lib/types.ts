@@ -58,7 +58,7 @@ export interface BaseConfig {
 export interface PluginConfig extends BaseConfig {
   ticketPrefixes?: string[];
   ticketRegex?: string;
-  projectId: string;
+  projectId: number;
   releaseNameTemplate?: string;
   jiraHost: string;
   networkConcurrency?: number;

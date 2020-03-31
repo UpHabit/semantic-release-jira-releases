@@ -28,7 +28,7 @@ The plugin should be added to your config
     "@semantic-release/release-notes-generator",
     "@semantic-release/git",
     ["semantic-release-jira-releases", {
-      "projectId": "UH",
+      "projectId": "1",
       "releaseNameTemplate": "Test v${version}",
       "jiraHost": "uphabit.atlassian.net",
       "ticketPrefixes": [ "TEST", "UH"],
@@ -53,8 +53,8 @@ interface Config {
   // ie. [a-zA-Z]{4}-\d{3,5} would match any ticket with 3 letters a dash and 3 to 5 numbers, such as `TEST-456`, `TEST-5643` and `TEST-56432`
   ticketRegex?: string;
   
-  // The id or key for the project releases will be created in
-  projectId: string;
+  // The id for the project releases will be created in
+  projectId: number;
   
   // A lodash template with a single `version` variable
   // defaults to `v${version}` which results in a version that is named like `v1.0.0`

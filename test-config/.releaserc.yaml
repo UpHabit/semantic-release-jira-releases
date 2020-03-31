@@ -7,7 +7,7 @@ plugins:
   - - '@semantic-release/npm'
     - npmPublish: false
   - - 'semantic-release-jira-releases'
-    - projectId: UH
+    - projectId: 1
       releaseNameTemplate: 'Test v${version}'
       jiraHost: uphabit.atlassian.net
       released: true
