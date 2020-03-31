@@ -11,7 +11,7 @@ plugins:
       releaseNameTemplate: 'Test v${version}'
       jiraHost: uphabit.atlassian.net
       released: true
-      releaseDate: true
+      setReleaseDate: true
       ticketPrefixes:
         - TEST
         - FIX

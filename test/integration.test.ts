@@ -29,7 +29,7 @@ describe('integration tests', () => {
     itif(runIntegration())('should create a release released with a date', async () => {
       jest.setTimeout(10000);
       pluginConfig.released = true;
-      pluginConfig.releaseDate = true;
+      pluginConfig.setReleaseDate = true;
       const jira = makeClient(pluginConfig as PluginConfig, context);
       const name = `test-${Date.now()}`;
       const res = await findOrCreateVersion(pluginConfig as PluginConfig, context, jira, pluginConfig.projectId, name);

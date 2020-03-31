@@ -1,6 +1,6 @@
 {
-  "name": "@pie-api/semantic-release-jira-releases",
-  "version": "0.11.0",
+  "name": "semantic-release-jira-releases",
+  "version": "0.6.0",
   "main": "dist/lib/index.js",
   "repository": "https://github.com/key-data-systems/semantic-release-jira-releases",
   "license": "MIT",
@@ -16,23 +16,25 @@
     "@types/request": "^2.48.4",
     "jira-connector": "^3.1.0",
     "lodash": "^4.17.11",
-    "p-limit": "^2.2.1",
-    "tslib": "^1.9.2"
+    "p-limit": "^2.2.2",
+    "tslib": "^1.11.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "@types/jest": "^25.1.4",
-    "@types/lodash": "^4.14.120",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.0.0",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.5",
-    "@types/signale": "^1.2.0",
-    "babel-polyfill": "^6.26.0",
+    "@types/signale": "^1.4.0",
     "jest": "^25.2.3",
-    "madge": "^3.4.3",
-    "ts-jest": "^25.2.1",
+    "madge": "^3.8.0",
     "tslint": "^6.1.0",
-    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "**/gonzales-pe/minimist": "^1.2.5",
+    "typescript": "^3.8.3",
+    "**/typescript": "^3.8.3"
   }
 }

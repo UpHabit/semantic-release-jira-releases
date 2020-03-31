@@ -1,3 +1,32 @@
+# [0.6.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.3...v0.6.0) (2020-03-30)
+
+
+### Features
+
+* add option for released and releaseDate for veresion ([879d592](https://github.com/UpHabit/semantic-release-jira-releases/commit/879d592eae0f2ff7b321794fe7c1d386b8ce2dff))
+* add release notes to JIRA release ([e7ce86b](https://github.com/UpHabit/semantic-release-jira-releases/commit/e7ce86b30a68dcb342afe765c5c0600cc418c7e4))
+
+## [0.5.3](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.2...v0.5.3) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** upgrade jira-connector to 3.1.0 ([3d157d5](https://github.com/UpHabit/semantic-release-jira-releases/commit/3d157d587c368fc774e252f4aea9fd400083ad47))
+
+## [0.5.2](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.1...v0.5.2) (2020-03-27)
+
+
+### Bug Fixes
+
+* Merge pull request [#20](https://github.com/UpHabit/semantic-release-jira-releases/issues/20) from UpHabit/renovate/major-semantic-release-monorepo ([d758907](https://github.com/UpHabit/semantic-release-jira-releases/commit/d758907d37bd0e861fd1b10ce3acbd6829006d4e))
+
+## [0.5.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.0...v0.5.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* **security:** update all packages with secuirty issues ([1ba6780](https://github.com/UpHabit/semantic-release-jira-releases/commit/1ba67803f6c1f51770bd0b8d0f0f1e23d9025e64))
+
 # [0.5.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.4.0...v0.5.0) (2020-01-21)
 
 

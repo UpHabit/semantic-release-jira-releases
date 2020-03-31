@@ -51,13 +51,13 @@ export async function findOrCreateVersion(config: PluginConfig, context: Generat
       id: 'dry_run_id',
     } as any;
   } else {
-    newVersion = await jira.version.createVersion({   
-        name,
-        projectId,
-        released: config.released ? true : false,
-        releaseDate: config.releaseDate ? new Date(Date.now()).toISOString() : undefined
-      }, 
-    );
+    newVersion = await jira.version.createVersion({
+      name,
+      projectId: projectId as any,
+      description: context.nextRelease.notes,
+      released: Boolean(config.released),
+      releaseDate: config.setReleaseDate ? (new Date().toISOString()) : undefined,
+    });
   }
 
   context.logger.info(`Made new release '${newVersion.id}'`);
@@ -76,7 +76,7 @@ async function editIssueFixVersions(config: PluginConfig, context: GenerateNotes
               add: { id: releaseVersionId },
             }],
           },
-          properties:[]
+          properties: undefined as any,
         },
       });
     }

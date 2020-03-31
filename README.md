@@ -66,8 +66,8 @@ interface Config {
 
   // indicates if a new release created in jira should be set as released
   released?: boolean;
-
   // include the release date when creating a release in jira
-  releaseDate?: boolean;
+  setReleaseDate?: boolean;
+
 }
 ```
