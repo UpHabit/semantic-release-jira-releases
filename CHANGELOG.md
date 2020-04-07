@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.7.0...v0.7.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* error when releaseDescriptionTemplate is undefined ([17dca0c](https://github.com/UpHabit/semantic-release-jira-releases/commit/17dca0cd685cb4c91859ff0af2943adb56108e00))
+
 # [0.7.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.6.0...v0.7.0) (2020-04-07)
 
 
