@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import pLimit from 'p-limit';
 
 import { makeClient } from './jira';
-import { GenerateNotesContext, PluginConfig } from './types';
+import { DEFAULT_RELEASE_DESCRIPTION_TEMPLATE, DEFAULT_VERSION_TEMPLATE, GenerateNotesContext, PluginConfig } from './types';
 import { escapeRegExp } from './util';
 
 export function getTickets(config: PluginConfig, context: GenerateNotesContext): string[] {
@@ -32,7 +32,7 @@ export function getTickets(config: PluginConfig, context: GenerateNotesContext):
   return [...tickets];
 }
 
-async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string): Promise<Version> {
+async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesContext, jira: JiraClient, projectIdOrKey: string, name: string, description: string): Promise<Version> {
   const remoteVersions = await jira.project.getVersions({ projectIdOrKey });
   context.logger.info(`Looking for version with name '${name}'`);
   const existing = _.find(remoteVersions, { name });
@@ -51,10 +51,11 @@ async function findOrCreateVersion(config: PluginConfig, context: GenerateNotesC
       id: 'dry_run_id',
     } as any;
   } else {
+    const descriptionText = description || '';
     newVersion = await jira.version.createVersion({
       name,
       projectId: projectIdOrKey as any,
-      description: context.nextRelease.notes,
+      description: descriptionText,
       released: Boolean(config.released),
       releaseDate: config.setReleaseDate ? (new Date().toISOString()) : undefined,
     });
@@ -103,15 +104,18 @@ export async function success(config: PluginConfig, context: GenerateNotesContex
 
   context.logger.info(`Found ticket ${tickets.join(', ')}`);
 
-  const template = _.template(config.releaseNameTemplate || 'v${version}');
-  const newVersionName = template({ version: context.nextRelease.version });
+  const versionTemplate = _.template(config.releaseNameTemplate ?? DEFAULT_VERSION_TEMPLATE);
+  const newVersionName = versionTemplate({ version: context.nextRelease.version });
+
+  const descriptionTemplate = _.template(config.releaseDescriptionTemplate ?? DEFAULT_RELEASE_DESCRIPTION_TEMPLATE);
+  const newVersionDescription = descriptionTemplate({ version: context.nextRelease.version, notes: context.nextRelease.notes });
 
   context.logger.info(`Using jira release '${newVersionName}'`);
 
   const jira = makeClient(config, context);
 
   const project = await jira.project.getProject({ projectIdOrKey: config.projectId });
-  const releaseVersion = await findOrCreateVersion(config, context, jira, project.id, newVersionName);
+  const releaseVersion = await findOrCreateVersion(config, context, jira, project.id, newVersionName, newVersionDescription);
 
   const concurrentLimit = pLimit(config.networkConcurrency || 10);
 
