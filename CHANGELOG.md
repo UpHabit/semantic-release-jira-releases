@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.6.0...v0.7.0) (2020-04-07)
+
+
+### Features
+
+* add config for release description ([cd25e0d](https://github.com/UpHabit/semantic-release-jira-releases/commit/cd25e0d74174b4f2eff676cdf7dbb32e2e773f54))
+
 # [0.6.0](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.5.3...v0.6.0) (2020-03-30)
 
 
