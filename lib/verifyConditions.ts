@@ -42,7 +42,7 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
     }
   }
 
-  if (config.releaseDescriptionTemplate !== null || config.releaseDescriptionTemplate !== undefined) {
+  if (config.releaseDescriptionTemplate !== null && config.releaseDescriptionTemplate !== undefined) {
     if (typeof config.releaseDescriptionTemplate !== 'string') {
       throw new SemanticReleaseError('config.releaseDescriptionTemplate must be a string');
     }
