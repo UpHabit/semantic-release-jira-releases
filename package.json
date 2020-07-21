@@ -22,7 +22,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@types/jest": "^25.0.0",
+    "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.5",
     "@types/signale": "^1.4.0",
