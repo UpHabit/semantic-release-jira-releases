@@ -1,3 +1,10 @@
+## [0.7.2](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.7.1...v0.7.2) (2020-07-21)
+
+
+### Bug Fixes
+
+* **security:** Merge pull request [#42](https://github.com/UpHabit/semantic-release-jira-releases/issues/42) from UpHabit/dependabot/npm_and_yarn/lodash-4.17.19 ([07a32d9](https://github.com/UpHabit/semantic-release-jira-releases/commit/07a32d93b56852e703c62cee5206fa05952bc9bc))
+
 ## [0.7.1](https://github.com/UpHabit/semantic-release-jira-releases/compare/v0.7.0...v0.7.1) (2020-04-07)
 
 
