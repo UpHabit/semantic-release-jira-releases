@@ -16,7 +16,7 @@
     "@types/request": "^2.48.4",
     "jira-connector": "^3.1.0",
     "lodash": "^4.17.19",
-    "p-limit": "^2.2.2",
+    "p-limit": "^3.0.0",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
