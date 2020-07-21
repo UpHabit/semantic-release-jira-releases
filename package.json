@@ -20,13 +20,13 @@
     "tslib": "^1.11.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
-    "@types/jest": "^25.0.0",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.5",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.5",
     "@types/signale": "^1.4.0",
-    "jest": "^26.0.0",
+    "jest": "^26.1.0",
     "madge": "^3.8.0",
     "tslint": "^6.1.0",
     "tslint-config-airbnb": "^5.11.2",
