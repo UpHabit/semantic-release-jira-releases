@@ -15,7 +15,7 @@
     "@semantic-release/error": "^2.2.0",
     "@types/request": "^2.48.4",
     "jira-connector": "^3.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "p-limit": "^2.2.2",
     "tslib": "^1.11.1"
   },
