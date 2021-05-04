@@ -19,6 +19,28 @@ $ npm install --save-dev semantic-release-jira-releases
 $ yarn add --dev semantic-release-jira-releases
 ```
 
+### Setup Jira Auth
+
+Go to https://id.atlassian.com/manage-profile/security/api-tokens and create your token.
+
+Then Base64 encode the token with your email using this formatting:
+
+`'jane@doe.com:YOUR_TOKEN'`
+
+Encoding can easily be done using node: 
+
+```
+const encodedToken = Buffer.from(
+  'jane@doe.com:YOUR_TOKEN'
+).toString('base64')
+
+console.log(encodedToken)
+```
+
+and tested using curl: `curl -v https://your_org_name.atlassian.net -H "Authorization: Basic THE_NEW_ENCODED_TOKEN"`
+
+Using only the non Base64 encoded token won’t work.
+
 ### Configuration
 The plugin should be added to your config
 ```json
