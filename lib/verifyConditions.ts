@@ -56,5 +56,13 @@ export async function verifyConditions(config: PluginConfig, context: PluginCont
     throw new SemanticReleaseError(`JIRA_AUTH must be a string`);
   }
   const jira = makeClient(config, context);
-  await jira.project.getProject({ projectIdOrKey: config.projectId });
+  try {
+    await jira.project.getProject({ projectIdOrKey: config.projectId });
+  } catch (e) {
+    if (typeof e === 'string' && e.includes('"statusCode"')) {
+      throw new SemanticReleaseError(`connecting to jira failed with status ${JSON.parse(e).statusCode}`);
+    } else {
+      throw new SemanticReleaseError(`connecting to jira failed`, '', e);
+    }
+  }
 }

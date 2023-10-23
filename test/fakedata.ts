@@ -50,10 +50,11 @@ export const upcomingRelease: UpcomingRelease = {
   type: ''
 }
 
-export const pluginConfig: Partial<PluginConfig> = {
+export const pluginConfig: PluginConfig = {
   ...baseConfig,
   projectId: 'TEST',
-  jiraHost: 'testjira.com'
+  jiraHost: 'testjira.com',
+  ticketPrefixes: ['TEST'],
 }
 
 export const logger = {
@@ -62,7 +63,9 @@ export const logger = {
 
 export const pluginContext: PluginContext = {
   cwd: '',
-  env: {},
+  env: {
+    JIRA_AUTH: 'myauth'
+  },
   logger: logger as any,
   options: baseConfig,
   stderr: null,
