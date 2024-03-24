@@ -12,7 +12,7 @@
     "test": " yarn jest"
   },
   "dependencies": {
-    "@semantic-release/error": "^2.2.0",
+    "@semantic-release/error": "^4.0.0",
     "@types/request": "^2.48.4",
     "jira-connector": "^3.1.0",
     "lodash": "^4.17.19",
