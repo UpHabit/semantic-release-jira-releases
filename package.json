@@ -20,8 +20,8 @@
     "tslib": "^1.11.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/preset-env": "^8.0.0",
+    "@babel/preset-typescript": "^8.0.0",
     "@types/jest": "^26.0.5",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.5",
